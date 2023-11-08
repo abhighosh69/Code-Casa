@@ -2,15 +2,35 @@
 import java.util.*;
 
 public class NumberGuessing {
+	static int random_number;
+	//Generate random number
+	public static void generatedNumber(){
+		Scanner obj = new Scanner(System.in);
+		System.out.println("Enter the mode\n E for Easy \n M for Medium \n H for Hard");
+		char itemCode = obj.next().toUpperCase().charAt(0);
 
-	// Implements a function that will guessing number
+		switch (itemCode) {
+            case 'E' -> {
+                random_number = 1 + (int) (10 * Math.random());
+            }
+            case 'M' -> {
+                random_number = 1 + (int) (100 * Math.random());
+            }
+            case 'H' -> {
+                random_number = 1 + (int) (1000 * Math.random());
+            }
+            default -> System.out.println("Please Type correctly!");
+        }
+		//obj.close();
+	}
+	// Implements a function that will check the guessing number
 	public static void numberGuess()
 	{
 		// Createing a Scanner Class Object
 		Scanner sc = new Scanner(System.in);
 
 		// Generate the numbers
-		int random_number = 1 + (int)(100* Math.random());
+		//int random_number = 1 + (int)(100* Math.random());
 		System.out.println(random_number);
 
 		// Given trials
@@ -47,10 +67,11 @@ public class NumberGuessing {
 		}
 	}
 
-	// Driver Code
 	public static void main(String arg[])
 	{
+		
 		// Function Call
+		generatedNumber();
 		numberGuess();
 	}
 }
